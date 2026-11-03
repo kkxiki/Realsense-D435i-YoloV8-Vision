@@ -1,0 +1,7 @@
+# Optional parameter override for the existing bottle_target_tracker node.
+bottle_target_tracker:
+  ros__parameters:
+    detections_topic: /yolov8/detections
+    depth_topic: /d435i/aligned_depth_to_color/image_raw
+    camera_info_topic: /d435i/color/camera_info
+    bbox_coordinates: normalized

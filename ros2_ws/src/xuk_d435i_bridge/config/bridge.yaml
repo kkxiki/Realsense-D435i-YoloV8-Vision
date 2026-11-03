@@ -1,0 +1,14 @@
+xuk_d435i_bridge:
+  ros__parameters:
+    gateway_host: 127.0.0.1
+    control_port: 17630
+    stream_port: 17631
+    publish_rate_hz: 30.0
+    reconnect_delay_s: 1.0
+    publish_legacy_yolo: true
+    color_topic: /d435i/color/image_raw
+    depth_topic: /d435i/aligned_depth_to_color/image_raw
+    camera_info_topic: /d435i/color/camera_info
+    annotated_topic: /d435i/annotated/image_raw
+    objects_topic: /d435i/objects_6d
+    legacy_detection_topic: /yolov8/detections

@@ -1,0 +1,11 @@
+# calibration_type: intrinsic | eye_in_hand | eye_to_hand
+# command: reset | capture | solve
+string calibration_type
+string command
+geometry_msgs/Pose base_to_tool
+---
+bool success
+string message
+uint32 sample_count
+string result_path
+string result_json

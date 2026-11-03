@@ -1,0 +1,13 @@
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+data/captures/*
+data/calibration/*
+!data/captures/.gitkeep
+!data/calibration/.gitkeep
+models/*.pt
+models/*.onnx
+models/*.engine
+

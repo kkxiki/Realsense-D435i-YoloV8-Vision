@@ -1,0 +1,7 @@
+# Hardware control name, e.g. color.exposure or depth.laser_power.
+string name
+float64 value
+---
+bool success
+string message
+string control_json

@@ -1,0 +1,6 @@
+# operation: status | profiles | controls
+string operation
+---
+bool success
+string message
+string json

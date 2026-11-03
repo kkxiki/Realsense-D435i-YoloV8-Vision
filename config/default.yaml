@@ -1,0 +1,68 @@
+camera:
+  backend: realsense          # realsense | mock
+  serial: ""
+  width: 848
+  height: 480
+  fps: 30
+  depth_width: 848
+  depth_height: 480
+  depth_fps: 30
+  timeout_ms: 3000
+  enable_imu: false
+  align_depth_to_color: true
+  filters:
+    spatial: true
+    temporal: true
+    hole_filling: false
+
+depth:
+  min_m: 0.15
+  max_m: 1.50
+  roi_radius_px: 5
+  object_band_m: 0.08
+  point_sample_step: 3
+  min_pose_points: 50
+
+detector:
+  enabled: true
+  model_path: models/yolov8n.pt
+  confidence: 0.30
+  iou: 0.45
+  image_size: 640
+  device: cpu
+  classes: []                    # 全部 80 个 COCO 类别：人、水瓶、杯子、手机等
+  frame_interval: 1
+
+pose:
+  method: depth_pca
+  output_frame: camera_color_optical_frame
+  camera_mount: eye_in_hand      # eye_in_hand | eye_to_hand
+  smoothing_alpha: 0.35
+  track_max_center_distance_px: 80
+  axis_length_m: 0.06
+
+calibration:
+  board:
+    type: chessboard
+    inner_corners_cols: 8
+    inner_corners_rows: 11
+    square_size_mm: 15.0
+    confirmed: true
+  min_intrinsic_samples: 12
+  min_handeye_samples: 12
+  handeye_method: PARK
+  min_eye_to_hand_samples: 12
+  eye_to_hand_method: SHAH
+  intrinsic_file: data/calibration/intrinsics.json
+  handeye_file: data/calibration/tool_T_camera.json
+  eye_to_hand_file: data/calibration/base_T_camera.json
+
+paths:
+  capture_dir: data/captures
+  log_dir: data/logs
+
+gui:
+  language: zh_CN
+  show_depth_colormap: false
+  show_pose_axes: true
+  show_top_left_panel: false

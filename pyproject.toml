@@ -1,0 +1,50 @@
+[build-system]
+requires = ["setuptools>=68,<80", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "xuk-d435i-camera"
+version = "0.1.0"
+description = "D435i camera, calibration, YOLO and 6D perception module"
+readme = "README_CN.md"
+requires-python = ">=3.10,<3.13"
+dependencies = [
+  "numpy>=1.23,<2.0",
+  "opencv-python>=4.8,<5",
+  "Pillow>=9.0",
+  "backports.lzma>=0.0.14; platform_system == 'Linux'",
+  "PyYAML>=6.0",
+]
+
+[project.optional-dependencies]
+gui = ["PyQt5>=5.15"]
+realsense = ["pyrealsense2>=2.55"]
+yolo = ["ultralytics>=8.2"]
+dev = ["pytest>=7.4", "ruff>=0.5"]
+all = [
+  "Pillow>=9.0",
+  "PyQt5>=5.15",
+  "pyrealsense2>=2.55",
+  "ultralytics>=8.2",
+  "pytest>=7.4",
+]
+
+[project.scripts]
+d435i-camera = "d435i_camera.cli:main"
+d435i-camera-gui = "d435i_camera.gui.app:main"
+d435i-camera-gateway = "d435i_camera.gateway:main"
+d435i-yolo-train = "d435i_camera.train_cli:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"

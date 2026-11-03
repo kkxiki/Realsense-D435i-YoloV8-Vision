@@ -1,0 +1,12 @@
+int32 color_width
+int32 color_height
+int32 color_fps
+int32 depth_width
+int32 depth_height
+int32 depth_fps
+bool enable_imu
+bool persist
+---
+bool success
+string message
+string config_json

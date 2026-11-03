@@ -1,0 +1,7 @@
+# Replace new_object with your class names, then add images and YOLO labels.
+path: .
+train: images/train
+val: images/val
+
+names:
+  0: new_object
